@@ -21,7 +21,6 @@ body {
     color: #333;
 }
 
-/* NAVBAR */
 .navbar {
     background-color: #3498db;
     padding: 15px;
@@ -35,14 +34,12 @@ body {
     font-weight: bold;
 }
 
-/* HEADER */
 header {
     text-align: center;
     padding: 30px;
     background-color: #ffffff;
 }
 
-/* 🔥 HOME ONLY (NEW CLASS) */
 .home-box {
     width: 60%;
     margin: 40px auto;
@@ -52,14 +49,12 @@ header {
     text-align: center;
 }
 
-/* 🔥 KEEP TABLE SAFE */
 .section {
     margin: 40px auto;
     width: 80%;
     text-align: center;
 }
 
-/* TABLE */
 table {
     margin: auto;
     border-collapse: collapse;
@@ -81,7 +76,6 @@ th, td {
     border: 1px solid #ddd;
 }
 
-/* FOOTER */
 footer {
     text-align: center;
     padding: 15px;
@@ -89,37 +83,31 @@ footer {
     color: white;
     margin-top: 300px;
 }
-/* Element selector */
+
 p {
     font-size: 16px;
 }
 
-/* Class selector */
 .section {
     padding: 20px;
 }
 
-/* ID selector */
 #mainTitle {
     color: black;
 }
 
-/* Group selector */
 h1, h2 {
     font-family: Arial;
 }
 
-/* Descendant selector */
 .navbar a {
     text-decoration: none;
 }
 
-/* Attribute selector */
 input[type="text"] {
     border: 1px solid gray;
 }
 
-/* Pseudo-class */
 a:hover {
     color: yellow;
 }
