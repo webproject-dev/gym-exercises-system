@@ -5,9 +5,11 @@
     <title>Workout Plans</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+
+<body onload="showPlans()" class="d-flex flex-column min-vh-100">
 
 <div class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
@@ -42,27 +44,37 @@
     <br><br>
     <h2 class="fw-bold">Weekly Workout Plan</h2>
 
-    <table class="table table-striped" cellspacing="5">
+    <table id="planTable" class="table table-striped" cellspacing="5">
         <thead>
-            <th colspan="3" class="bg-primary text-white">Workout Schedule</th>
-        </thead>
-
-        <tbody>
+            <tr>
+                <th colspan="3" class="bg-primary text-white">Workout Schedule</th>
+            </tr>
+            <tr>
                 <th class="bg-primary text-white">Day</th>
                 <th class="bg-primary text-white">Exercise</th>
                 <th class="bg-primary text-white">Reps</th>  
-        </tbody>
+            </tr>
+        </thead>
 
-        <tbody>
-            <tr><td>Sunday</td><td>Chest</td><td>10</td></tr>
-            <tr><td>Monday</td><td>Legs</td><td>12</td></tr>
-            <tr><td>Tuesday</td><td>Rest</td><td>-</td></tr>
-            <tr><td>Wednesday</td><td>Back</td><td>10</td></tr>
-            <tr><td>Thursday</td><td>Arms</td><td>12</td></tr>
-            <tr><td>Friday</td><td>Rest</td><td>-</td></tr>
-            <tr><td>Saturday</td><td>Full Body</td><td>15</td></tr>
+        <tbody id="planBody">
         </tbody>
     </table>
+
+<h3 class="mt-4">Add New Plan</h3>
+
+<input type="text" id="day" class="form-control mb-2" placeholder="Day">
+<input type="text" id="pexercise" class="form-control mb-2" placeholder="Exercise">
+<input type="text" id="reps" class="form-control mb-2" placeholder="Reps">
+
+<button class="btn btn-primary" onclick="addPlan()">Add Plan</button>
+<br><br>
+<h3 class="mt-4">Search Plan</h3>
+
+<input type="text" id="searchPlan" class="form-control mb-2" placeholder="Enter day">
+<button class="btn btn-success" onclick="findPlan()">Search</button>
+
+<p id="planResult"></p>
+
 </div>
 
 <footer class="bg-primary text-white text-center p-3">
