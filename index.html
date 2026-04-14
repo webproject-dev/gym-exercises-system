@@ -35,6 +35,15 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="calculator.html">Calculator</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="questionnaire.html">Questionnaire</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="calculator.html">Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="funpage.html">Fun Page</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -61,11 +70,47 @@
                 This website helps you learn exercises, build plans, and track progress.
                 </p>
             </div>
+
+            <div class="card p-4 mt-4 mb-4">
+                <h2 class="fw-bold">Photo Gallery</h2>
+                <img id="galleryImage" src="bench.jpg" class="img-fluid mx-auto d-block rounded" style="max-width: 400px;" alt="Gym Image ;">
+            </div>
     </div> 
 </div>    
 <footer class="bg-primary text-white text-center p-3">
     <p>© 2026 Gym Exercises System</p>
 </footer>
+
+<div class="bg-dark text-white  p-2" style="position: fixed; bottom: 0; width: 100%;">
+    <marquee id="bannerText"></marquee>
+
+</div>
+<script>
+    var images = ["bench.jpg","squat.jpg","deadlift.jpg"];
+    var i = 0;
+    function changeImage(){
+        i++;
+        if (i>=images.length){
+            i = 0;
+        }
+        document.getElementById("galleryImage").src=images[i];
+    }
+    setInterval(changeImage, 3000);
+    
+    function updateBanner() {
+        var now = new Date();
+
+        var message = "Welcome to the gym exercises system website , Today is " + now.toDateString() + ", and the time is " + now.toLocaleTimeString();
+
+        document.getElementById("bannerText").innerHTML = message;
+    }
+
+    updateBanner();
+
+    setInterval(updateBanner, 1000);
+    
+
+</script>
 
 </body>
 </html>
