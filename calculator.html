@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+    <div class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Gym Exercises System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="exercises.html">Exercises</a></li>
+                    <li class="nav-item"><a class="nav-link" href="plans.html">Workout Plans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="questionnaire.html">Questionnaire</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="calculator.html">Calculator</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5 flex-fill">
+        <div class="card p-4 shadow">
+            <h2 class="text-center text-primary">Gym Membership Calculator</h2>
+            <p class="text-center">Calculate the total gym membership cost.</p>
+
+            <label class="form-label">Membership Type</label>
+            <select id="plan" class="form-select mb-3">
+                <option value="">Choose a plan</option>
+                <option value="15">Basic - 15 OMR per month</option>
+                <option value="25">Standard - 25 OMR per month</option>
+                <option value="35">Premium - 35 OMR per month</option>
+            </select>
+            <label class="form-label">Number Of Months</label>
+            <input type="number" id="months" class="form-control mb-3" placeholder="Enter number of months">
+
+            <label class="form-label">Age</label>
+            <input type="number" id="age" class="form-control mb-3" placeholder="Enter your age">
+
+            <button type="button" class="btn btn-primary w-100" onclick="calculateCost()">Calculate</button>
+
+            <p id="result" class="mt-3 fw-bold text-success"></p>
+            <p id="error" class="mt-2 fw-bold text-danger"></p>
+        </div>
+    </div>
+    <footer class="bg-primary text-white text-center p-3">
+    <p>© 2026 Gym Exercises System</p>
+    </footer>
+
+    <script>
+        function calculateCost() {
+            // get values from the input fields
+            var plan = document.getElementById("plan").value;
+            var months = document.getElementById("months").value;
+            var age = document.getElementById("age").value;
+
+            // clear previous messages
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("error").innerHTML = "";
+
+            // check if any field is empty
+            if (plan == "" || months == "" || age == "") {
+                document.getElementById("error").innerHTML = "Please fill all fields.";
+                return;  // stop function if inputs are missing
+            }
+
+            // convert input values from text to numbers
+            plan = parseFloat(plan);
+            months = parseInt(months);
+            age = parseInt(age);
+
+            // calculate the total cost before discount
+            var subtotal = plan * months;
+
+            // start discount as 0 
+            var discount = 0;
+
+            // apply 10% discount if age is 60 or more 
+            if (age >= 60) {
+                discount = subtotal  *0.10 ;
+            }
+
+            //calculate final total after discount
+            var total = subtotal - discount;
+
+            // display the final result on the page 
+            document.getElementById("result").innerHTML = "Total cost = " + total + " OMR";
+        }
+    </script>
+</body>
+</html>

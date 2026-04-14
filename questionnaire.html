@@ -9,12 +9,12 @@
 </head>
 <body class="d-flex flex-column min-vh-100 bg-light">
     <div class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Gym Exercises System</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-collapse" id="navbarNav"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Gym Exercises System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="exercises.html">Exercises</a></li>
@@ -22,6 +22,7 @@
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="questionnaire.html">Questionnaire</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="calculator.html">Calculator</a></li>
                 </ul>
             </div>
         </div>
@@ -68,41 +69,58 @@
     <script>
         function validateForm() {
             
+            // get the values entered by the user from the form inputs
             var name = document.getElementById("name").value.trim();
             var email = document.getElementById("email").value.trim();
             var feedback = document.getElementById("feedback").value.trim();
             var gender = document.querySelector('input[name="gender"]:checked');
 
+            // clear all previous error and success messages before new validation
             document.getElementById("nameError").innerHtml = "";
             document.getElementById("emailError").innerHtml = "";
             document.getElementById("genderError").innerHtml = "";
             document.getElementById("feedbackError").innerHtml = "";
             document.getElementById("success").innerHtml = "";
 
+            // assume the form is valid at the beginnig
             var valid = true ;
 
-            var namePattern = /^[A-ZA-z ]{3,}$/;
-            if (!namePattern.test(name)) {
+            // name validation
+            // check if the name has at least 3 characters
+            if (name.length <3) {
                 document.getElementById("nameError").innerHTML = " Enter a valid name.";
                 valid = false ;
             }
-            var emailPattern = /^[^\s@]+[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
+
+            // email validation
+            // check if email contains "@" and "."
+            if (!email.includes("@") ||!email.includes(".") ) {
                 document.getElementById("emailError").innerHTML = " Enter a valid email.";
                 valid = false ;
             }
+
+            // gender validation
+            // check if user selected a gender option
             if (gender == null) {
                 document.getElementById("generError").innerHTML = "Select gender.";
                 valid = false;
             }
+
+            // feedback validation 
+            // check if feedback is at least 10 characters long
             if (feedback.length < 10 ) {
                 document.getElementById("feedbackError").innerHTML = "Feedback must be at least 10 characters.";
                 valid = false ;
             }
+
+            // success message
+            // if all validations pass , show success message
             if (valid == true) {
                 document.getElementById("success").innerHTML = "Form submitted successfully!";
             }
-            return false
+
+            // prevent page from refreshing after form submission
+            return false ; 
         }
     </script>
 
