@@ -50,19 +50,28 @@ if (isset($_GET["search"]) || isset($_GET["level"])) {
 </head>
 <body class="d-flex flex-column min-vh-100 bg-light">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<div class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand" href="index.html">Gym Exercises System</a>
-        <div class="collapse navbar-collapse show">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="exercises.html">Exercises</a></li>
                 <li class="nav-item"><a class="nav-link" href="plans.html">Workout Plans</a></li>
-                <li class="nav-item"><a class="nav-link active" href="search_exercises.php">Search DB</a></li>
-                <li class="nav-item"><a class="nav-link" href="manage_exercises.php">Manage DB</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="questionnaire.html">Questionnaire</a></li>
+                <li class="nav-item"><a class="nav-link" href="calculator.html">Calculator</a></li>
+                <li class="nav-item"><a class="nav-link active" href="search_exercises.php">Search Exercises</a></li>
+                <li class="nav-item"><a class="nav-link" href="manage_exercises.php">Manage Exercises</a></li>
             </ul>
         </div>
     </div>
-</nav>
+</div>
 
 <div class="container my-5 flex-fill">
     <div class="card shadow p-4">
